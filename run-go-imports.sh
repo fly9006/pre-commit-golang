@@ -2,8 +2,10 @@
 #
 # Capture and print stdout, since goimports doesn't use proper exit codes
 #
-set -e
+# set -e
 
-exec 5>&1
-output="$(goimports -l -w "$@" | tee /dev/fd/5)"
-[[ -z "$output" ]]
+# exec 5>&1
+# output="$(goimports -l -w "$@" | tee /dev/fd/5)"
+# [[ -z "$output" ]]
+
+exec golangci-lint run "$@"
